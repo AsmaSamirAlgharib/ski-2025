@@ -39,3 +39,11 @@ $customTheme: mat.define-theme();
     margin-right: auto;
     max-width: 1536px;
 }
+
+.text-primary {
+    color: #7d00fa;
+}
+
+button.match-input-height {
+    height: var(--mat-form-field-container-height) !important;
+}
