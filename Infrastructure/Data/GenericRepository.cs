@@ -27,10 +27,10 @@ namespace Infrastructure.Data
             return context.Set<T>().Any(x => x.Id == id);
         }
 
-        public async Task<T?> GetByTdAsync(int id)
+        public async Task<T?> GetByIdAsync(int id)
         {
             return await context.Set<T>().FindAsync(id);
-        }
+        } 
 
         public async Task<T?> GetEntityWithSpec(ISpecifition<T> spec)
         {

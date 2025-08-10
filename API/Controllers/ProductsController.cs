@@ -19,7 +19,7 @@ public class ProductsController(IGenericRepository<Product> repo) : BaseApiContr
     [HttpGet("{id:int}")] // api/products/2
     public async Task<ActionResult<Product>> GetProduct(int id)
     {
-        var Product = await repo.GetByTdAsync(id);
+        var Product = await repo.GetByIdAsync(id);
         if (Product == null) return NotFound();
         return Product;
     }
@@ -53,7 +53,7 @@ public class ProductsController(IGenericRepository<Product> repo) : BaseApiContr
     [HttpDelete("{id:int}")]
     public async Task<ActionResult> DeleteProduct(int id)
     {
-        var product = await repo.GetByTdAsync(id);
+        var product = await repo.GetByIdAsync(id);
 
         if (product == null) return NotFound();
 
