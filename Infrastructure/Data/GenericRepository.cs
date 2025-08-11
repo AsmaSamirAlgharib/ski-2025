@@ -30,7 +30,7 @@ namespace Infrastructure.Data
         public async Task<T?> GetByIdAsync(int id)
         {
             return await context.Set<T>().FindAsync(id);
-        } 
+        }
 
         public async Task<T?> GetEntityWithSpec(ISpecifition<T> spec)
         {
@@ -60,11 +60,6 @@ namespace Infrastructure.Data
         public void Remove(T entity)
         {
             context.Set<T>().Remove(entity);
-        }
-
-        public async Task<bool> SaveAllAsync()
-        {
-            return await context.SaveChangesAsync() > 0;
         }
 
         public void Update(T entity)
