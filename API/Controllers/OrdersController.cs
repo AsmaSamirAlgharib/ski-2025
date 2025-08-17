@@ -57,8 +57,9 @@ namespace API.Controllers
                 ShippingAddress = orderDto.ShippingAddress,
                 Subtotal = items.Sum(x => x.Price * x.Quantity),
                 PaymentSummary = orderDto.PaymentSummary,
-                PaymentInentId = cart.PaymentIntentId,
-                BuyerEmail = email
+                PaymentIntentId = cart.PaymentIntentId,
+                BuyerEmail = email,
+                Status = OrderStatus.PaymentRecieved
             };
 
             unit.Repository<Order>().Add(order);
@@ -78,7 +79,7 @@ namespace API.Controllers
             var orders = await unit.Repository<Order>().ListAsync(spec);
 
             var ordersToReturn = orders.Select(o => o.ToDto()).ToList();
-            
+
             return Ok(ordersToReturn);
         }
 
@@ -89,7 +90,7 @@ namespace API.Controllers
 
             var order = await unit.Repository<Order>().GetEntityWithSpec(spec);
 
-            if(order == null) return NotFound();
+            if (order == null) return NotFound();
 
             return order.ToDto();
         }

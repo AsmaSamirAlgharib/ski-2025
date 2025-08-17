@@ -180,7 +180,7 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("PaymentInentId")
+                    b.Property<string>("PaymentIntentId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
